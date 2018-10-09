@@ -58,6 +58,8 @@ pipeline {
           container('nodejs') {
             sh "npm install"
             sh "CI=true DISPLAY=:99 npm test"
+              
+            sh "echo \$(DOCKER_CONFIG)"
 
             sh 'export VERSION=`cat VERSION` && skaffold build -f skaffold.yaml'
 
