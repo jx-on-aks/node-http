@@ -59,7 +59,7 @@ pipeline {
             sh "npm install"
             sh "CI=true DISPLAY=:99 npm test"
             
-            sh "dockerd"
+            sh "docker info"
               
             sh 'export VERSION=`cat VERSION` && skaffold build -f skaffold.yaml'
 
