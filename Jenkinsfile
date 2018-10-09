@@ -58,6 +58,8 @@ pipeline {
           container('nodejs') {
             sh "npm install"
             sh "CI=true DISPLAY=:99 npm test"
+            
+            sh "cat /etc/docker/daemon.json"
               
             sh 'export VERSION=`cat VERSION` && skaffold build -f skaffold.yaml'
 
